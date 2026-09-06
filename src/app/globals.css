@@ -1,17 +1,107 @@
 @import "tailwindcss";
 
-/* Styles de base minimaux — tokens de marque configurés à l'étape design system */
+/*
+ * Design system Klic Site — tokens issus de klic-site-branding.html
+ * (sections Couleur & Typographie).
+ * Tailwind v4 : le thème vit ici via @theme (pas de tailwind.config.js).
+ */
+
 :root {
-  --background: #f1eee6;
-  --foreground: #16140f;
+  /* Palette de marque (valeurs brutes pour usage hors utilitaires Tailwind) */
+  --ink: #16140f;
+  --ink-soft: #4a473e;
+  --paper: #f1eee6;
+  --paper-raised: #fbfaf6;
+  --mist: #dcd6c7;
+  --line: #cfc8b4;
+  --accent: #223a5e;
+  --accent-soft: #dee5ee;
+  --accent-ink: #14283f;
+  --radius-brand: 3px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* --- Couleurs nommées (pas de palette Tailwind par défaut dans le projet) --- */
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-mist: var(--mist);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+
+  /* Alias sémantiques surface / texte */
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+
+  /* --- Typographie : Manrope (display) + Inter (corps) via next/font --- */
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* --- Échelle typographique (alignée charte) --- */
+  --text-caption: 0.8125rem; /* 13px — meta, labels */
+  --text-caption--line-height: 1.5;
+
+  --text-sm: 0.875rem; /* 14px */
+  --text-sm--line-height: 1.5;
+
+  --text-body: 1rem; /* 16px — texte courant */
+  --text-body--line-height: 1.6;
+
+  --text-lede: 1.1875rem; /* 19px — chapeau / intro */
+  --text-lede--line-height: 1.55;
+
+  --text-h3: 1.125rem; /* 18px */
+  --text-h3--line-height: 1.3;
+
+  --text-h2: clamp(1.75rem, 3.6vw, 2.5rem); /* 28→40px */
+  --text-h2--line-height: 1.08;
+
+  --text-h1: clamp(2rem, 4vw, 2.625rem); /* 32→42px — titres forts */
+  --text-h1--line-height: 1.1;
+
+  --text-display: clamp(2.5rem, 6vw, 3.5rem); /* hero / display */
+  --text-display--line-height: 1.05;
+
+  /* Rayon de marque */
+  --radius-brand: 3px;
 }
 
+/* Base : fond papier, texte encre, Inter par défaut */
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Titres : Manrope, tracking serré comme la charte */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+/* Focus visible — accessibilité WCAG, accent indigo */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Respect des préférences de réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
