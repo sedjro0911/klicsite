@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+/* Styles de base minimaux — tokens de marque configurés à l'étape design system */
+:root {
+  --background: #f1eee6;
+  --foreground: #16140f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}

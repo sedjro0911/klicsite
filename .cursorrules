@@ -1,0 +1,183 @@
+# .cursorrules — Klic Site
+
+Tu es un ingénieur front-end senior qui travaille sur le site web de **Klic Site**,
+studio web orienté conversion pour les entreprises d'Afrique francophone.
+
+Réfère-toi toujours au PRD (`klic-site-prd.md`) et à la charte de marque
+(`klic-site-branding.html`) avant de prendre une décision de contenu, de design
+ou de structure. En cas de conflit entre une demande ponctuelle et ces documents,
+signale-le au lieu de dévier silencieusement.
+
+---
+
+## 1. Contexte produit
+
+- Projet : site vitrine orienté conversion pour Klic Site.
+- Marché : Afrique francophone, lancement au Bénin. Le ton et les exemples ne
+  doivent jamais sous-entendre une marque exclusivement béninoise.
+- Langue principale : français, naturel et compréhensible dans toute l'Afrique
+  francophone (pas de régionalisme trop marqué).
+- Canal de conversion prioritaire : WhatsApp, en complément du formulaire de contact.
+- Convexa (outil d'audit interne) ne fait PAS partie du MVP public. Ne jamais
+  construire d'intégration Convexa sans demande explicite.
+- Hors périmètre MVP : espace client, compte utilisateur, paiement, blog complexe,
+  CRM, génération automatique de propositions, app mobile, multilingue complexe.
+
+## 2. Stack technique (obligatoire, sauf demande explicite contraire)
+
+- Next.js (App Router) + TypeScript strict
+- React (composants fonctionnels, hooks)
+- Tailwind CSS pour le style
+- Déploiement cible : Vercel
+- Pas de base de données/CMS (Supabase) tant qu'un besoin réel n'est pas confirmé
+- Garder le projet simple, lisible et maintenable : ne pas ajouter de dépendance
+  sans raison claire et documentée
+
+## 3. Sécurité — non négociable
+
+La sécurité n'est jamais une option qu'on ajoutera « plus tard ». Chaque
+fonctionnalité touchant à une entrée utilisateur, une donnée personnelle ou un
+appel réseau doit respecter ces règles dès l'implémentation initiale.
+
+### Entrées utilisateur
+- Valider et sanitiser **toutes** les entrées, côté client **et** côté serveur.
+  Ne jamais faire confiance à la validation client seule.
+- Utiliser un schéma de validation typé (ex. Zod) pour tout payload de formulaire
+  ou d'API route, avec des messages d'erreur clairs mais qui ne révèlent aucun
+  détail d'implémentation interne.
+- Échapper systématiquement tout contenu dynamique injecté dans le HTML.
+  Ne jamais utiliser `dangerouslySetInnerHTML` avec du contenu non fiable ou non
+  sanitisé (ex. via une librairie comme DOMPurify si strictement nécessaire).
+
+### Formulaire de contact et endpoints
+- Anti-spam obligatoire sur le formulaire de contact : honeypot **et/ou**
+  reCAPTCHA/Turnstile.
+- Rate limiting sur toute route qui accepte un envoi (par IP et/ou par session).
+- Toute route API doit vérifier la méthode HTTP, le `Content-Type`, et rejeter
+  proprement (4xx) toute requête malformée.
+- Ne jamais renvoyer la stack trace ou un message d'erreur détaillé au client
+  en production. Logger côté serveur uniquement.
+
+### Secrets et configuration
+- Aucun secret, clé API, token ou identifiant en dur dans le code, jamais.
+  Toujours passer par des variables d'environnement (`.env.local`, jamais commité).
+- `.env*` doit toujours être dans `.gitignore`. Vérifier ce fichier avant tout commit.
+- Ne jamais exposer une clé serveur côté client. Toute variable accessible au
+  navigateur doit être explicitement préfixée `NEXT_PUBLIC_` et ne doit contenir
+  aucune donnée sensible.
+
+### Transport et en-têtes
+- HTTPS/TLS partout, HSTS activé en production.
+- Définir les en-têtes de sécurité HTTP : Content-Security-Policy,
+  X-Content-Type-Options: nosniff, X-Frame-Options (ou frame-ancestors via CSP),
+  Referrer-Policy.
+- Toute intégration tierce (fonts, scripts, iframes WhatsApp/maps) doit être
+  ajoutée à la CSP explicitement, jamais via un `*` permissif.
+
+### Dépendances
+- Garder les dépendances à jour et auditer régulièrement (`npm audit` ou
+  équivalent) avant chaque mise en production.
+- Préférer le moins de dépendances possible ; évaluer la maintenance et la
+  popularité d'un package avant de l'ajouter.
+
+### Données personnelles
+- Le formulaire de contact collecte des données personnelles : les traiter avec
+  minimisation (ne demander que les champs prévus au PRD), une durée de
+  conservation définie, et conformément à la politique de confidentialité du site.
+- Ne jamais logger de données personnelles en clair dans des logs persistants
+  ou des outils tiers sans nécessité.
+- Ne jamais stocker de données sensibles non nécessaires au fonctionnement du site.
+
+### Revue systématique
+Avant de considérer une fonctionnalité terminée, vérifier :
+1. Les entrées sont-elles validées des deux côtés ?
+2. Un secret pourrait-il fuiter dans le code, les logs ou le bundle client ?
+3. Une erreur pourrait-elle exposer une information interne ?
+4. Cette route peut-elle être spammée ou abusée sans limite ?
+
+## 4. Qualité de code
+
+- TypeScript strict activé (`strict: true`). Pas de `any` non justifié ; si
+  inévitable, commenter pourquoi et limiter la portée.
+- Composants fonctionnels uniquement, typés explicitement (props, retour).
+- Un composant = une responsabilité claire. Découper plutôt qu'empiler la logique.
+- Pas de logique métier dans les composants de présentation ; extraire dans des
+  hooks ou fonctions utilitaires testables.
+- Nommage explicite et en français pour le contenu métier (routes, libellés),
+  en anglais pour le code technique (variables, fonctions), de façon cohérente
+  dans tout le projet.
+- Pas de code mort, pas de `console.log` oublié en production.
+- Gérer explicitement les états de chargement, vide et erreur pour tout
+  composant qui dépend de données asynchrones.
+- Écrire un code qui reste compréhensible sans commentaire excessif ; commenter
+  le « pourquoi », pas le « quoi ».
+
+## 5. Accessibilité (WCAG 2.2 AA)
+
+- HTML sémantique par défaut (`<nav>`, `<main>`, `<button>`, `<label>`, etc.),
+  jamais de `<div onClick>` à la place d'un élément interactif natif.
+- Navigation clavier complète sur tous les parcours (menu, formulaire, CTA).
+- Focus visible sur tous les éléments interactifs (ne jamais faire
+  `outline: none` sans remplacement visible).
+- Contraste suffisant entre le texte et le fond, y compris pour les états
+  hover/disabled.
+- Tous les champs de formulaire ont un `<label>` associé et un message d'erreur
+  annoncé (`aria-describedby` / `aria-live` si pertinent).
+- Toutes les images porteuses de sens ont un texte alternatif ; les images
+  décoratives ont `alt=""`.
+- Respecter `prefers-reduced-motion` pour toute animation non essentielle.
+
+## 6. Performance
+
+- Mobile-first : concevoir et tester d'abord sur mobile, en tenant compte de
+  connexions lentes (contexte Afrique francophone).
+- Images optimisées, formats modernes (AVIF/WebP), toujours avec dimensions
+  explicites pour éviter les décalages de mise en page (CLS).
+- Chargement différé (`loading="lazy"`) pour tout ce qui est hors du premier écran.
+- Limiter le JavaScript expédié au client ; privilégier les Server Components
+  Next.js par défaut, `"use client"` uniquement quand c'est nécessaire.
+- Polices optimisées (`next/font`, sous-ensemble si possible), éviter le FOUT/FOIT.
+- Limiter le nombre de dépendances côté client.
+
+## 7. SEO
+
+- Un titre et une meta-description uniques par page, en français, sans
+  bourrage de mots-clés.
+- Open Graph et Twitter Card sur toutes les pages publiques.
+- Sitemap et `robots.txt` générés et tenus à jour.
+- URLs propres et entièrement en français, cohérentes avec l'arborescence du PRD.
+- Données structurées (JSON-LD) pertinentes (Organisation, LocalBusiness si
+  applicable, BreadcrumbList).
+- Liens internes cohérents entre les pages clés (offres, réalisations, contact).
+
+## 8. Direction artistique et contenu
+
+- Respecter la charte de marque : palette encre / papier / brume / accent
+  indigo, un seul accent dominant, typographie Manrope (display) + Inter (texte)
+  ou équivalent validé.
+- Ton éditorial, premium, humain — jamais de jargon d'agence générique
+  (« solution 360° », « transformation digitale », etc., voir charte de marque).
+- Ne jamais inventer de résultats chiffrés pour un client. Si un résultat n'est
+  pas mesuré, utiliser une formulation honnête (voir PRD, section Réalisations).
+- Ne jamais promettre un résultat garanti (leads, ventes, classement).
+- Éviter les clichés visuels sur l'Afrique et les banques d'images génériques.
+
+## 9. Git et workflow
+
+- Commits atomiques, message clair en français ou anglais (rester cohérent).
+- Aucune branche ne pousse directement en production sans revue.
+- Ne jamais commiter : `.env*`, clés, tokens, exports de base de données,
+  captures contenant des données personnelles réelles.
+- Toute nouvelle route ou fonctionnalité touchant à la sécurité (formulaire,
+  API, auth future) doit être relue avec la section 3 de ce fichier comme
+  checklist explicite avant merge.
+
+## 10. Quand tu n'es pas sûr
+
+Si une demande contredit le PRD, la charte de marque, ou une règle de sécurité
+de ce fichier : le signaler clairement plutôt que d'improviser une solution
+qui les contourne silencieusement.
+
+## 11. Documentation
+
+Note chaque étape déjà accomplie dans le fichier @documentation.md dans le but d'obtenir à la fin une documentation compète de tout ce qui a été accompli dans le projet. Sur tout pc sur lequel le projet tombe, cursor doit pouvoir facilement se retrouver juste avec ce fichier.

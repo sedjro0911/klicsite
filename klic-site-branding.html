@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klic Site — Charte de marque</title>
+<meta name="description" content="Charte de marque de Klic Site : positionnement, ton, identité visuelle, typographie, couleurs et système de marque.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16140F;
+    --ink-soft:#4A473E;
+    --paper:#F1EEE6;
+    --paper-raised:#FBFAF6;
+    --mist:#DCD6C7;
+    --line:#CFC8B4;
+    --accent:#223A5E;
+    --accent-soft:#DEE5EE;
+    --accent-ink:#14283F;
+    --radius:3px;
+    --sans-display:'Manrope',-apple-system,sans-serif;
+    --sans-body:'Inter',-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans-body); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  a{ color:var(--accent-ink); }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+  img{ max-width:100%; display:block; }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding: 0 40px; }
+  section{ padding: 88px 0; border-top:1px solid var(--line); }
+  section:first-of-type{ border-top:none; }
+
+  .eyebrow-num{
+    font-family:var(--sans-display); font-weight:700; font-size:13px;
+    color:var(--ink-soft); margin: 0 0 18px;
+  }
+  h2{
+    font-family:var(--sans-display); font-weight:800; letter-spacing:-0.015em;
+    font-size:clamp(28px,3.6vw,40px); line-height:1.08; margin: 0 0 20px; max-width:16ch;
+  }
+  h3{
+    font-family:var(--sans-display); font-weight:700; font-size:18px; margin:0 0 12px;
+  }
+  p{ margin:0 0 16px; max-width:62ch; }
+  .lede{ font-size:19px; color:var(--ink-soft); max-width:56ch; }
+
+  ul{ margin:0; padding:0; list-style:none; }
+
+  /* ---------------- Cover ---------------- */
+  .cover{
+    min-height: 92vh;
+    display:flex; flex-direction:column; justify-content:space-between;
+    border-top:none;
+    padding-top:56px; padding-bottom:56px;
+  }
+  .cover-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .cover-meta{ text-align:right; font-size:13px; color:var(--ink-soft); line-height:1.5; }
+  .cover-mark{ font-family:var(--sans-display); font-weight:800; font-size:22px; letter-spacing:-0.01em; }
+
+  .cover-main{ margin-top:auto; padding-top:80px; }
+  .cover-word{
+    font-family:var(--sans-display); font-weight:800;
+    font-size: clamp(64px, 13vw, 168px);
+    line-height:0.88; letter-spacing:-0.03em; margin:0;
+  }
+  .cover-word span{ color:var(--accent-ink); }
+  .cover-sub{
+    font-size:clamp(18px,2.2vw,24px); color:var(--ink-soft);
+    max-width: 46ch; margin: 28px 0 0;
+    font-family:var(--sans-display); font-weight:500;
+  }
+  .cover-fr{ font-size:15px; color:var(--ink-soft); margin-top:8px; max-width:46ch; }
+
+  /* ---------------- Two column ---------------- */
+  .cols-2{ display:grid; grid-template-columns: 1fr 1fr; gap:56px; }
+  .cols-intro{ display:grid; grid-template-columns: 1.1fr 1fr; gap:64px; align-items:start; }
+
+  .list-plain li{ padding: 9px 0; border-bottom:1px solid var(--line); font-size:15.5px; }
+  .list-plain li:first-child{ padding-top:0; }
+
+  .not-list li{ color: var(--ink-soft); }
+  .not-list li::before{ content:"— "; color:var(--ink-soft); }
+  .is-list li::before{ content:"— "; color:var(--accent-ink); font-weight:700; }
+
+  /* ---------------- Voice examples ---------------- */
+  .voice-pair{ display:grid; grid-template-columns: 1fr 1fr; gap:24px; margin: 28px 0; }
+  .voice-card{
+    padding:22px 24px; border-radius:var(--radius); border:1px solid var(--line);
+  }
+  .voice-card.no{ background:var(--paper-raised); }
+  .voice-card.yes{ background:var(--accent-soft); border-color:transparent; }
+  .voice-label{
+    font-family:var(--sans-display); font-weight:700; font-size:12.5px;
+    color:var(--ink-soft); margin-bottom:10px;
+  }
+  .voice-card.yes .voice-label{ color:var(--accent-ink); }
+  .voice-card p{ margin:0; font-size:15.5px; max-width:none; }
+  .voice-card.yes p{ color:var(--accent-ink); font-weight:500; }
+
+  .principle{ display:flex; gap:20px; padding:22px 0; border-bottom:1px solid var(--line); }
+  .principle:last-child{ border-bottom:none; }
+  .principle .n{ font-family:var(--sans-display); font-weight:800; font-size:15px; color:var(--ink-soft); flex:none; width:28px; padding-top:2px; }
+  .principle h4{ font-family:var(--sans-display); font-size:16px; margin:0 0 6px; font-weight:700; }
+  .principle p{ margin:0; font-size:15px; }
+
+  /* ---------------- Vocabulary chips ---------------- */
+  .chip-row{ display:flex; flex-wrap:wrap; gap:10px; margin: 16px 0 32px; }
+  .chip{
+    font-size:14px; padding:8px 14px; border-radius:999px; border:1px solid var(--line);
+    background:var(--paper-raised);
+  }
+  .chip.avoid{ color:var(--ink-soft); border-style:dashed; text-decoration:line-through; text-decoration-color:var(--mist); }
+
+  /* ---------------- Tagline ---------------- */
+  .tagline-primary{
+    font-family:var(--sans-display); font-weight:800;
+    font-size:clamp(28px,4vw,42px); letter-spacing:-0.015em; line-height:1.15;
+    color:var(--accent-ink); max-width:18ch; margin: 8px 0 6px;
+  }
+  .tagline-fr{ font-size:17px; color:var(--ink-soft); margin-bottom:36px; }
+  .tagline-alt{ padding:16px 0; border-top:1px solid var(--line); font-size:16px; display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+  .tagline-alt .fr{ color:var(--ink-soft); }
+
+  /* ---------------- Color swatches ---------------- */
+  .swatch-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .swatch{ border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); }
+  .swatch-fill{ height:120px; }
+  .swatch-info{ padding:14px 16px; background:var(--paper-raised); }
+  .swatch-name{ font-family:var(--sans-display); font-weight:700; font-size:14.5px; }
+  .swatch-hex{ font-size:13px; color:var(--ink-soft); font-variant-numeric:tabular-nums; }
+  .swatch-role{ font-size:12.5px; color:var(--ink-soft); margin-top:6px; }
+
+  /* ---------------- Type specimen ---------------- */
+  .specimen-row{ padding:22px 0; border-bottom:1px solid var(--line); }
+  .specimen-row:last-child{ border-bottom:none; }
+  .specimen-meta{ display:flex; justify-content:space-between; font-size:13px; color:var(--ink-soft); margin-bottom:8px; }
+  .specimen-display{ font-family:var(--sans-display); font-weight:800; font-size:42px; letter-spacing:-0.015em; line-height:1.1; }
+  .specimen-body{ font-family:var(--sans-body); font-size:17px; max-width:60ch; }
+
+  /* ---------------- Logo ---------------- */
+  .logo-block{
+    display:flex; align-items:center; justify-content:center;
+    border-radius:var(--radius); padding: 64px 24px; border:1px solid var(--line);
+  }
+  .logo-block.light{ background:var(--paper-raised); }
+  .logo-block.dark{ background:var(--ink); }
+  .logo-lockup{ display:flex; align-items:baseline; gap:10px; }
+  .logo-word{ font-family:var(--sans-display); font-weight:800; font-size:56px; letter-spacing:-0.01em; color:var(--ink); }
+  .logo-descriptor{ font-family:var(--sans-body); font-size:18px; color:var(--ink-soft); }
+  .logo-block.dark .logo-word{ color:var(--paper-raised); }
+  .logo-block.dark .logo-descriptor{ color:var(--mist); }
+  .logo-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px; }
+  .logo-rules{ margin-top:20px; }
+  .logo-rules li{ padding:8px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
+  .logo-rules li::before{ content:"✓ "; color:var(--accent-ink); font-weight:700; }
+
+  .logo-mark{ flex:none; }
+  .logo-lockup{ align-items:center; }
+  .logo-word{ color:var(--accent-ink); }
+  .logo-block.dark .logo-word{ color:var(--paper-raised); }
+
+  .logo-secondary{
+    display:flex; flex-direction:column; align-items:flex-start; gap:8px;
+    padding:28px 24px; border:1px solid var(--line); border-radius:var(--radius);
+    background:var(--paper-raised); margin-top:18px;
+  }
+  .logo-secondary .caption{ font-size:13px; color:var(--ink-soft); margin-left:32px; }
+
+  .favicon-row{
+    display:flex; align-items:flex-end; gap:32px; flex-wrap:wrap;
+    padding:24px; border:1px solid var(--line); border-radius:var(--radius);
+    margin-top:14px; background:var(--paper-raised);
+  }
+  .favicon-item{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .favicon-item .label{ font-size:12px; color:var(--ink-soft); }
+  .tab-mock{
+    display:flex; align-items:center; gap:6px; padding:6px 12px;
+    border:1px solid var(--line); border-radius:6px; background:var(--paper);
+  }
+  .tab-mock span{ font-size:12px; color:var(--ink-soft); }
+  .app-icon{
+    width:44px; height:44px; border-radius:11px; background:var(--accent);
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* ---------------- Architecture ---------------- */
+  .arch{ display:flex; align-items:stretch; gap:0; margin-top:8px; flex-wrap:wrap; }
+  .arch-box{
+    flex:1; min-width:220px; padding:24px; border:1px solid var(--line); background:var(--paper-raised);
+  }
+  .arch-box + .arch-box{ border-left:none; }
+  .arch-box.accent{ background:var(--accent-soft); }
+  .arch-title{ font-family:var(--sans-display); font-weight:800; font-size:15px; margin-bottom:6px; }
+  .arch-desc{ font-size:14px; color:var(--ink-soft); }
+
+  /* ---------------- Checklist ---------------- */
+  .checklist{ display:grid; grid-template-columns:1fr 1fr; gap: 4px 40px; }
+  .checklist li{ padding:12px 0; border-bottom:1px solid var(--line); font-size:15.5px; display:flex; gap:10px; }
+  .checklist li::before{ content:"—"; color: var(--ink-soft); flex:none; }
+
+  footer{ padding: 48px 0 80px; }
+  footer p{ font-size:13px; color:var(--ink-soft); }
+
+  @media (max-width: 860px){
+    .wrap{ padding:0 22px; }
+    section{ padding:56px 0; }
+    .cols-2, .cols-intro, .voice-pair{ grid-template-columns:1fr; gap:28px; }
+    .swatch-grid{ grid-template-columns:1fr 1fr; }
+    .checklist{ grid-template-columns:1fr; }
+    .logo-grid{ grid-template-columns:1fr; }
+    .cover{ min-height:auto; }
+    .cover-main{ padding-top:48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- COVER -->
+  <section class="cover">
+    <div class="cover-top">
+      <span class="cover-mark">KLIC SITE</span>
+      <div class="cover-meta">
+        <div>Charte de marque</div>
+        <div>v1.0 · Septembre 2026</div>
+      </div>
+    </div>
+    <div class="cover-main">
+      <p class="cover-word">Klic<span>.</span></p>
+      <p class="cover-sub">Des sites qui transforment l'attention en action.</p>
+      <p class="cover-fr">Studio web orienté conversion pour les entreprises ambitieuses d'Afrique francophone.</p>
+    </div>
+  </section>
+
+  <!-- 1. ESSENCE -->
+  <section id="essence">
+    <p class="eyebrow-num">01 — Essence de marque</p>
+    <div class="cols-intro">
+      <div>
+        <h2>Un studio digital africain aux standards internationaux.</h2>
+        <p class="lede">Klic Site aide les entreprises à transformer leur site d'une présence passive en un véritable outil commercial.</p>
+      </div>
+      <div>
+        <h3>Ce que nous faisons</h3>
+        <p>Nous concevons et construisons des sites qui aident les entreprises à communiquer clairement, installer la confiance, guider leurs visiteurs, générer des demandes — et transformer l'attention en action.</p>
+      </div>
+    </div>
+
+    <div class="cols-2" style="margin-top:48px;">
+      <div>
+        <h3>Klic Site ne doit pas ressembler à</h3>
+        <ul class="list-plain not-list">
+          <li>un développeur freelance générique</li>
+          <li>une agence de communication traditionnelle</li>
+          <li>une « agence IA »</li>
+          <li>une marketplace de templates</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Klic Site doit ressembler à</h3>
+        <ul class="list-plain is-list">
+          <li>un studio digital spécialisé</li>
+          <li>focalisé sur les résultats business</li>
+          <li>rigoureux dans sa méthode</li>
+          <li>exigeant dans son exécution</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. POSITIONING -->
+  <section id="positioning">
+    <p class="eyebrow-num">02 — Positionnement &amp; promesse</p>
+    <div class="cols-2">
+      <div>
+        <h3>Positionnement</h3>
+        <p style="font-size:19px; font-family:var(--sans-display); font-weight:600; color:var(--ink);">Klic Site crée des sites vitrines orientés conversion pour les entreprises africaines ambitieuses.</p>
+        <p style="color:var(--ink-soft); font-size:15px;">Websites that turn attention into action.</p>
+      </div>
+      <div>
+        <h3>Promesse de marque</h3>
+        <p style="font-size:19px; font-family:var(--sans-display); font-weight:600; color:var(--ink);">Votre site devrait travailler pour votre entreprise.</p>
+        <p style="color:var(--ink-soft); font-size:15px;">Your website should work for your business. La promesse reste volontairement commerciale, sans jamais garantir un résultat de chiffre d'affaires précis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PERSONALITY -->
+  <section id="personality">
+    <p class="eyebrow-num">03 — Personnalité</p>
+    <h2>Confiante. Précise. Jamais tape-à-l'œil.</h2>
+    <div class="cols-2" style="margin-top:32px;">
+      <div>
+        <h3>Klic Site est</h3>
+        <ul class="list-plain is-list">
+          <li>Confiante</li>
+          <li>Intelligente</li>
+          <li>Claire</li>
+          <li>Moderne</li>
+          <li>Ambitieuse</li>
+          <li>Pragmatique</li>
+          <li>Humaine</li>
+          <li>Précise</li>
+          <li>Premium</li>
+          <li>Africaine, avec subtilité</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Klic Site n'est pas</h3>
+        <ul class="list-plain not-list">
+          <li>Arrogante</li>
+          <li>Corporate pour le principe</li>
+          <li>Excessivement technique</li>
+          <li>Suiveuse de tendances</li>
+          <li>Pleine de buzzwords marketing</li>
+          <li>Artificiellement luxueuse</li>
+          <li>Bruyante</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. VOICE -->
+  <section id="voice">
+    <p class="eyebrow-num">04 — Ton &amp; écriture</p>
+    <h2>Clair et direct.</h2>
+    <div class="voice-pair">
+      <div class="voice-card no">
+        <p class="voice-label">À éviter</p>
+        <p>Nous proposons des solutions digitales innovantes et sur mesure adaptées aux enjeux de transformation numérique de votre entreprise.</p>
+      </div>
+      <div class="voice-card yes">
+        <p class="voice-label">À privilégier</p>
+        <p>Votre site doit expliquer votre valeur, rassurer vos prospects et leur montrer quoi faire ensuite.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;">
+      <div class="principle">
+        <span class="n">01</span>
+        <div>
+          <h4>Partir du problème business</h4>
+          <p>Pas « Nous utilisons Next.js et l'intelligence artificielle » — mais « Nous construisons des sites rapides et pensés autour de vos objectifs commerciaux. »</p>
+        </div>
+      </div>
+      <div class="principle">
+        <span class="n">02</span>
+        <div>
+          <h4>Être concret</h4>
+          <p>Pas « Expérience digitale exceptionnelle » — mais « Un parcours simple qui mène votre visiteur vers la bonne action. »</p>
+        </div>
+      </div>
+      <div class="principle">
+        <span class="n">03</span>
+        <div>
+          <h4>Ne jamais survendre</h4>
+          <p>Aucune promesse de leads garantis, de chiffre d'affaires garanti, de classement Google garanti ou de taux de conversion garanti.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <span class="n">04</span>
+        <div>
+          <h4>Garder un langage simple</h4>
+          <p>Le client n'a pas besoin de comprendre la technologie pour comprendre la valeur.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. VOCABULARY -->
+  <section id="vocabulary">
+    <p class="eyebrow-num">05 — Vocabulaire de marque</p>
+    <h3>À utiliser souvent</h3>
+    <div class="chip-row">
+      <span class="chip">Conversion</span><span class="chip">Clarté</span><span class="chip">Confiance</span>
+      <span class="chip">Parcours</span><span class="chip">Action</span><span class="chip">Performance</span>
+      <span class="chip">Expérience</span><span class="chip">Stratégie</span><span class="chip">Business</span>
+      <span class="chip">Croissance</span><span class="chip">Prospects</span><span class="chip">Clients</span>
+      <span class="chip">Présence digitale</span><span class="chip">Site vitrine</span>
+    </div>
+    <h3>À éviter</h3>
+    <div class="chip-row">
+      <span class="chip avoid">révolutionnaire</span><span class="chip avoid">disruptif</span>
+      <span class="chip avoid">game changer</span><span class="chip avoid">solution 360°</span>
+      <span class="chip avoid">innovation de pointe</span><span class="chip avoid">synergie</span>
+      <span class="chip avoid">transformation digitale</span><span class="chip avoid">IA révolutionnaire</span>
+    </div>
+  </section>
+
+  <!-- 6. TAGLINE -->
+  <section id="tagline">
+    <p class="eyebrow-num">06 — Système de signature</p>
+    <h3>Ligne principale</h3>
+    <p class="tagline-primary">Websites that turn attention into action.</p>
+    <p class="tagline-fr">Des sites qui transforment l'attention en action.</p>
+
+    <h3 style="margin-top:8px;">Lignes secondaires acceptées</h3>
+    <div>
+      <div class="tagline-alt"><span>Your website. Working for your business.</span></div>
+      <div class="tagline-alt"><span>Design with a business purpose.</span></div>
+      <div class="tagline-alt"><span>Built to be seen. Designed to convert.</span><span class="fr">Conçu pour être vu. Pensé pour convertir.</span></div>
+    </div>
+    <p style="margin-top:20px; font-size:14px; color:var(--ink-soft);">Ne jamais utiliser plusieurs signatures en même temps. Choisir une ligne principale par support.</p>
+  </section>
+
+  <!-- 7. VISUAL DIRECTION -->
+  <section id="visual">
+    <p class="eyebrow-num">07 — Direction visuelle</p>
+    <h2>Éditorial. Premium. Confiant.</h2>
+    <p class="lede">Klic Site combine design éditorial, technologie moderne et contexte business africain. Le système visuel doit être propre, aéré, intentionnel.</p>
+    <div class="cols-2" style="margin-top:24px;">
+      <div>
+        <h3>À privilégier</h3>
+        <ul class="list-plain is-list">
+          <li>Espaces généreux et respiration</li>
+          <li>Hiérarchie typographique forte</li>
+          <li>Photographie réelle et documentaire</li>
+          <li>Un seul accent chromatique dominant</li>
+        </ul>
+      </div>
+      <div>
+        <h3>À éviter</h3>
+        <ul class="list-plain not-list">
+          <li>Motifs africains décoratifs stéréotypés</li>
+          <li>Gradients et glassmorphism excessifs</li>
+          <li>Imagerie « IA futuriste »</li>
+          <li>Illustrations génériques de startup</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:24px;">L'identité africaine doit venir avant tout des entreprises, des personnes, des lieux et des histoires présentées — jamais d'un cliché décoratif.</p>
+  </section>
+
+  <!-- 8. COLOR -->
+  <section id="color">
+    <p class="eyebrow-num">08 — Couleur</p>
+    <h2>Une base neutre, un seul accent.</h2>
+    <div class="swatch-grid">
+      <div class="swatch">
+        <div class="swatch-fill" style="background:#16140F;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Encre</div>
+          <div class="swatch-hex">#16140F</div>
+          <div class="swatch-role">Texte principal, fonds majeurs</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-fill" style="background:#F1EEE6; border-bottom:1px solid var(--line);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Papier</div>
+          <div class="swatch-hex">#F1EEE6</div>
+          <div class="swatch-role">Surface principale</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-fill" style="background:#DCD6C7;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Brume</div>
+          <div class="swatch-hex">#DCD6C7</div>
+          <div class="swatch-role">Surfaces secondaires, séparateurs</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-fill" style="background:#223A5E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Indigo (accent)</div>
+          <div class="swatch-hex">#223A5E</div>
+          <div class="swatch-role">CTA, liens, mise en avant</div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:24px; font-size:14px; color:var(--ink-soft);">Règle : un seul accent dominant à la fois — jamais un arc-en-ciel de couleurs. L'accent exact peut être affiné lors de l'exploration visuelle finale, en restant dans cette famille indigo/encre.</p>
+  </section>
+
+  <!-- 9. TYPE -->
+  <section id="type">
+    <p class="eyebrow-num">09 — Typographie</p>
+    <h2>Deux polices, des rôles clairs.</h2>
+    <div class="specimen-row">
+      <div class="specimen-meta"><span>Manrope · 800 — Titres &amp; display</span><span>Éditorial, contemporain</span></div>
+      <div class="specimen-display">Votre site devrait vous apporter des clients</div>
+    </div>
+    <div class="specimen-row">
+      <div class="specimen-meta"><span>Inter · 400/500 — Texte courant</span><span>Neutre, très lisible</span></div>
+      <div class="specimen-body">Klic Site conçoit des sites vitrines rapides, crédibles et pensés autour d'un objectif simple : transformer vos visiteurs en prospects. Chaque décision de design sert la clarté, la confiance ou la conversion.</div>
+    </div>
+    <p style="margin-top:20px; font-size:14px; color:var(--ink-soft);">Familles alternatives acceptées : Geist, Plus Jakarta Sans. Toujours conserver une hiérarchie claire entre display et texte courant, avec un interlignage généreux.</p>
+  </section>
+
+  <!-- 10. LOGO -->
+  <section id="logo">
+    <p class="eyebrow-num">10 — Logo</p>
+    <h2>Un repère qui part en action, un mot qui reste lisible.</h2>
+
+    <div class="logo-grid">
+      <div class="logo-block light">
+        <div class="logo-lockup">
+          <svg class="logo-mark" width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="18" height="18" rx="4" fill="#223A5E"/><rect x="22" y="22" width="8" height="8" rx="2" fill="#223A5E"/></svg>
+          <span class="logo-word">KLiC</span>
+        </div>
+      </div>
+      <div class="logo-block dark">
+        <div class="logo-lockup">
+          <svg class="logo-mark" width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="18" height="18" rx="4" fill="#F1EEE6"/><rect x="22" y="22" width="8" height="8" rx="2" fill="#F1EEE6"/></svg>
+          <span class="logo-word">KLiC</span>
+        </div>
+      </div>
+    </div>
+
+    <ul class="logo-rules">
+      <li>Fonctionne en noir et blanc pur</li>
+      <li>Le repère et le mot sont toujours en une seule couleur unie — jamais deux tons dans le même lockup</li>
+      <li>Un seul repère (deux blocs pleins), du logo principal jusqu'au favicon</li>
+      <li>Reconnaissable sans le descriptif « Site »</li>
+      <li>Ne dépend d'aucun symbole africain décoratif</li>
+      <li>Reste moderne et intemporel plutôt que tendance</li>
+    </ul>
+
+    <h3 style="margin-top:36px;">Usage secondaire</h3>
+    <p style="font-size:14px; color:var(--ink-soft); max-width:60ch;">Le descriptif « Site » n'apparaît jamais dans le lockup principal. Il s'ajoute uniquement en usage secondaire — pied de page, signature e-mail, bas de document — sous une forme discrète.</p>
+    <div class="logo-secondary">
+      <div class="logo-lockup">
+        <svg class="logo-mark" width="31" height="31" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="18" height="18" rx="4" fill="#223A5E"/><rect x="22" y="22" width="8" height="8" rx="2" fill="#223A5E"/></svg>
+        <span class="logo-word" style="font-size:44px;">KLiC</span>
+      </div>
+      <span class="caption">Site — pied de page, signature e-mail, mentions de bas de document</span>
+    </div>
+
+    <h3 style="margin-top:36px;">Le repère à toutes les tailles</h3>
+    <p style="font-size:14px; color:var(--ink-soft); max-width:60ch;">Un seul repère, deux blocs pleins — pas de trait fin à faire tenir. Il reste net du logo principal jusqu'au favicon, sans version alternative à gérer.</p>
+    <div class="favicon-row">
+      <div class="favicon-item">
+        <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="18" height="18" rx="4" fill="#223A5E"/><rect x="22" y="22" width="8" height="8" rx="2" fill="#223A5E"/></svg>
+        <span class="label">32px</span>
+      </div>
+      <div class="favicon-item">
+        <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="18" height="18" rx="4" fill="#223A5E"/><rect x="22" y="22" width="8" height="8" rx="2" fill="#223A5E"/></svg>
+        <span class="label">16px — favicon</span>
+      </div>
+      <div class="favicon-item">
+        <div class="tab-mock">
+          <svg width="14" height="14" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="18" height="18" rx="4" fill="#223A5E"/><rect x="22" y="22" width="8" height="8" rx="2" fill="#223A5E"/></svg>
+          <span>klicsite.com</span>
+        </div>
+        <span class="label">onglet navigateur</span>
+      </div>
+      <div class="favicon-item">
+        <div class="app-icon">
+          <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="18" height="18" rx="4" fill="#F1EEE6"/><rect x="22" y="22" width="8" height="8" rx="2" fill="#F1EEE6"/></svg>
+        </div>
+        <span class="label">icône d'app</span>
+      </div>
+    </div>
+
+    <p style="margin-top:20px; font-size:14px; color:var(--ink-soft);">Le repère seul (sans le mot « KLiC ») s'utilise uniquement pour le favicon, les avatars et les icônes d'application, là où le mot-symbole complet ne rentre pas — jamais comme signature principale d'une communication.</p>
+  </section>
+
+  <!-- 11. PHOTOGRAPHY & UI & MOTION -->
+  <section id="photo-ui">
+    <p class="eyebrow-num">11 — Photographie, interfaces, mouvement</p>
+    <div class="cols-2">
+      <div>
+        <h3>Photographie</h3>
+        <p>Entreprises réelles, environnements réels, entrepreneurs africains, équipes professionnelles, produits et services, détails en gros plan, architecture forte. Lumière naturelle, composition affirmée, tons de peau réalistes. Éviter la photo de banque d'images « poignée de main ».</p>
+      </div>
+      <div>
+        <h3>Interfaces &amp; mouvement</h3>
+        <p>Les maquettes présentées en portfolio doivent être propres, orientées conversion et contextualisées : ce qui a changé, pourquoi, et quel objectif business cela sert. Le mouvement reste fluide, rapide et discret — jamais d'animation avant l'information, jamais de mouvement permanent.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. AI POSITIONING -->
+  <section id="ai">
+    <p class="eyebrow-num">12 — Positionnement IA</p>
+    <h2>L'IA accélère notre travail. La stratégie le dirige.</h2>
+    <p class="lede">L'intelligence artificielle fait partie du système de production de Klic Site. Elle n'est pas la marque.</p>
+    <div class="cols-2" style="margin-top:24px;">
+      <div>
+        <h3>L'IA peut soutenir</h3>
+        <ul class="list-plain is-list">
+          <li>Recherche &amp; exploration de contenus</li>
+          <li>Hypothèses UX</li>
+          <li>Prototypage</li>
+          <li>Développement</li>
+          <li>Contrôle qualité</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Le rôle humain reste</h3>
+        <ul class="list-plain is-list">
+          <li>Stratégie</li>
+          <li>Jugement &amp; goût</li>
+          <li>Positionnement</li>
+          <li>Réflexion sur la conversion</li>
+          <li>Compréhension du client</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. ARCHITECTURE -->
+  <section id="architecture">
+    <p class="eyebrow-num">13 — Architecture de marque</p>
+    <h2>Une marque cliente, un outil interne.</h2>
+    <div class="arch">
+      <div class="arch-box accent">
+        <div class="arch-title">KLIC SITE</div>
+        <div class="arch-desc">Marque mère, orientée client. Conçoit et optimise les sites.</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-title">CONVEXA</div>
+        <div class="arch-desc">Technologie interne. Audite et identifie les opportunités de conversion.</div>
+      </div>
+    </div>
+    <p style="margin-top:20px;">Convexa pourra devenir un produit public plus tard, mais ne doit jamais brouiller le positionnement initial de Klic Site.</p>
+  </section>
+
+  <!-- 14. DIFFERENTIATION & PROOF -->
+  <section id="proof">
+    <p class="eyebrow-num">14 — Différenciation &amp; preuve</p>
+    <div class="cols-2">
+      <div>
+        <h3>Klic Site ne se positionne jamais principalement sur</h3>
+        <ul class="list-plain not-list">
+          <li>le prix le plus bas</li>
+          <li>la livraison la plus rapide</li>
+          <li>le nombre de pages</li>
+          <li>« nous utilisons l'IA »</li>
+          <li>le nombre de technologies</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Klic Site se différencie par</h3>
+        <p style="font-size:19px; font-family:var(--sans-display); font-weight:600;">Réflexion business + conversion + design + exécution.</p>
+        <p style="margin-top:16px;">La preuve la plus solide reste la qualité du portfolio, les exemples avant/après, un processus transparent, des résultats clients réels quand ils existent, et des audits pertinents. Ne jamais fabriquer de preuve.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. DEFINITION -->
+  <section id="definition">
+    <p class="eyebrow-num">15 — Définition en une phrase</p>
+    <h2 style="max-width:22ch;">Klic Site est un studio web orienté conversion qui aide les entreprises africaines à faire de leur site un meilleur outil commercial.</h2>
+  </section>
+
+  <!-- 16. BRAND TEST -->
+  <section id="test">
+    <p class="eyebrow-num">16 — Test de marque</p>
+    <h3>Avant de publier quoi que ce soit sous Klic Site, demander :</h3>
+    <ul class="checklist" style="margin-top:20px;">
+      <li>Est-ce clair ?</li>
+      <li>Est-ce utile ?</li>
+      <li>Est-ce que ça paraît premium ?</li>
+      <li>Est-ce que ça reste humain ?</li>
+      <li>Est-ce que ça communique une valeur business ?</li>
+      <li>Est-ce que ça évite le langage d'agence générique ?</li>
+      <li>Est-ce que ça renforce la conversion ?</li>
+      <li>Une entreprise africaine sérieuse ferait-elle confiance à cette marque ?</li>
+    </ul>
+    <p style="margin-top:20px; font-size:14px; color:var(--ink-soft);">Si la réponse est non — revoir la copie ou le design avant publication.</p>
+  </section>
+
+  <footer>
+    <p>Klic Site — Charte de marque v1.0 — Septembre 2026</p>
+  </footer>
+
+</div>
+</body>
+</html>
