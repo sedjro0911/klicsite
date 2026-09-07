@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
 import "./globals.css";
 
 /* Manrope — titres & display (charte § Typographie) */
@@ -18,9 +21,11 @@ const inter = Inter({
   display: "swap",
 });
 
-// Métadonnées minimales — le SEO complet arrivera avec les pages de contenu
 export const metadata: Metadata = {
-  title: "Klic Site",
+  title: {
+    default: "Klic Site",
+    template: "%s — Klic Site",
+  },
   description:
     "Studio web orienté conversion pour les entreprises d'Afrique francophone.",
 };
@@ -35,7 +40,12 @@ export default function RootLayout({
       lang="fr"
       className={`${manrope.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col font-sans">{children}</body>
+      <body className="flex min-h-full flex-col font-sans">
+        <Header />
+        {children}
+        <Footer />
+        <WhatsAppFab />
+      </body>
     </html>
   );
 }
